@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:timbu/src/views/products_detail/photos_viewer.dart';
 
 import '../../models/product.dart';
 import '../../utils/app_colors.dart';
+import 'photos_viewer.dart';
 
+// displays the Product being passed
+// displays all photos of a product, it's name, availability,
+// description and price.
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({super.key, required this.product});
   final Product product;

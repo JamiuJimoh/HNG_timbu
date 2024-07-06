@@ -20,6 +20,7 @@ class MainApp extends StatelessWidget {
       routes: {
         '/products': (_) => const ProductsPage(),
         '/product-details': (context) {
+        // Must provide a "Product" when routing to this page using the named-route
           final product = ModalRoute.of(context)!.settings.arguments as Product;
           return ProductDetailPage(product: product);
         },

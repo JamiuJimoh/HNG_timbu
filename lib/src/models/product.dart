@@ -21,6 +21,8 @@ class Product {
     required this.isAvailable,
   });
 
+  // sanitizedPrice is used to get the price, format it in the 
+  // form e.g "2,345.67", in 2 decimal place, and return as String
   String get sanitizedPrice {
     var str = '';
     price.forEach((key, value) {
@@ -33,6 +35,8 @@ class Product {
     return str;
   }
 
+  // - getCurrencySymbol is used to convert the currency code e.g "NGN"
+  // to it's respective symbol "₦"
   String getCurrencySymbol(String name) {
     var format =
         NumberFormat.simpleCurrency(locale: Platform.localeName, name: name);

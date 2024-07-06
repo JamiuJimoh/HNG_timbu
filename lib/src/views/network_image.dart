@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// displays a single image being fetched using a url.
+// displays a loadingProgress indicator by calculating the byte size
+// to be downloaded and the bytes received already.
+// displays an error icon if an error occurred while dowloading.
 class CustomNetworkImage extends StatelessWidget {
   const CustomNetworkImage({super.key, required this.url, this.fit});
   final String url;

@@ -23,6 +23,9 @@ class _ProductsPageState extends State<ProductsPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // fetch the list of products only once, immediately we get
+      // to the page. Not using FutureBuilder because it's calling the
+      // api multiple times which is not efficient.
       await _fetchProducts();
     });
   }
@@ -32,7 +35,7 @@ class _ProductsPageState extends State<ProductsPage> {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: _error != null
             ? Expanded(
                 child: Center(child: ErrorText(error: _error!)),
@@ -48,7 +51,7 @@ class _ProductsPageState extends State<ProductsPage> {
                       color: kTextColor,
                     ),
                   ),
-                  const SizedBox(height: 18.0),
+                  const SizedBox(height: 23.0),
                   Expanded(
                     child: _isLoading
                         ? const Center(
@@ -60,8 +63,8 @@ class _ProductsPageState extends State<ProductsPage> {
                                 const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               childAspectRatio: 0.65,
-                              mainAxisSpacing: 18.0,
-                              crossAxisSpacing: 17.0,
+                              mainAxisSpacing: 28.0,
+                              crossAxisSpacing: 20.0,
                             ),
                             itemBuilder: (_, i) {
                               final product = _products[i];
@@ -84,10 +87,14 @@ class _ProductsPageState extends State<ProductsPage> {
     );
   }
 
+  // this calls the controller which configures the request and fetches the 
+  // list of products. It also sets the 3 states (loading, error, data)
   Future<void> _fetchProducts() async {
+    setState(() {
+      _isLoading = true;
+    });
     final controller = ProductsController();
     try {
-      _isLoading = true;
       final res = await controller.fetchProducts();
       setState(() {
         _products.addAll(res);

@@ -17,6 +17,9 @@ class ProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      // using layout builder to get the available height for each product tile
+      // dividing it into 2 parts. The image part takes 70% while the text part
+      // takes 30%
       child: LayoutBuilder(
         builder: (_, constraint) {
           final imgSize = constraint.maxHeight * 0.7;

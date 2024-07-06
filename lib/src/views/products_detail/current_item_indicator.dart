@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../utils/app_colors.dart';
 
+// used to indicate how many items are on the PageView, and also
+// the current item being shown in the viewport.
 class CurrentItemIndicator extends StatelessWidget {
   const CurrentItemIndicator({super.key, required this.isCurrentPage});
   final bool isCurrentPage;

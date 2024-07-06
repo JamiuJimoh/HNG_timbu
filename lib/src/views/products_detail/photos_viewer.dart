@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:timbu/src/views/products_detail/current_item_indicator.dart';
 
 import '../network_image.dart';
+import 'current_item_indicator.dart';
 
+// displays all photos belonging to a product in a carousel manner,
+// using the swipe gesture
 class PhotosViewer extends StatefulWidget {
   const PhotosViewer({super.key, required this.photos});
   final List<String> photos;

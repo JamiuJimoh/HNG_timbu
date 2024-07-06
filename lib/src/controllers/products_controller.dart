@@ -8,7 +8,10 @@ import '../models/product.dart';
 
 const baseURL = 'https://api.timbu.cloud';
 
-class ProductsController {
+final class ProductsController {
+  // - configures and fetches the products using the organizationId, appID and apiKey,
+  // - checks the status code to handle error if it exists,
+  // - deserialize the data into Products to get the necessary data
   Future<List<Product>> fetchProducts() async {
     await dotenv.load();
     final organizationId = dotenv.get('ORGANIZATION_ID');
