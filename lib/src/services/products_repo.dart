@@ -8,7 +8,7 @@ import '../models/product.dart';
 
 const baseURL = 'https://api.timbu.cloud';
 
-final class ProductsController {
+final class ProductsRepo {
   // - configures and fetches the products using the organizationId, appID and apiKey,
   // - checks the status code to handle error if it exists,
   // - deserialize the data into Products to get the necessary data
