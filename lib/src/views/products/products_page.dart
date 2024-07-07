@@ -5,15 +5,10 @@ import '../../utils/app_colors.dart';
 import '../error_text.dart';
 import 'products_tile.dart';
 
-class ProductsPage extends StatefulWidget {
+class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
 
-  @override
-  State<ProductsPage> createState() => _ProductsPageState();
-}
-
-class _ProductsPageState extends State<ProductsPage> {
-  final repo = ProductsRepo();
+  static const repo = ProductsRepo();
 
   @override
   Widget build(BuildContext context) {
